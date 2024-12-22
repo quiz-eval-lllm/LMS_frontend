@@ -5,17 +5,22 @@
         <div class="side-img-login">
           <form @submit.prevent="login">
             <div class="row">
+              <div
+                style="margin-bottom:10px; font-weight:bold; color:#555; border:1px solid #ccc; padding:10px; border-radius:15px 15px 0 0; background-color:#f9f9f9; text-align:center;"
+              >
+                Single Sign-On for Integrated Learning Evaluation System
+              </div>
               <div class="col-md-6 left">
                 <div class="input-box">
-                  <header>Login</header>
+                  <header>SSO</header>
                   <div class="input-field">
-                    <label for="email">Email</label>
+                    <label for="email">Username</label>
                     <input
                       v-model="formData.email"
                       type="text"
                       class="input"
                       id="email"
-                      placeholder="Email"
+                      placeholder="Username"
                       required
                       autocomplete="off"
                     />
@@ -108,12 +113,7 @@
                   <!-- <div class="input-field">
                     <a href="/" class="btn-secondary">Log In as Guest</a>
                   </div> -->
-                  <div class="signup">
-                    <span
-                      >Belum memiliki akun?
-                      <a href="/register">Daftar</a></span
-                    >
-                  </div>
+                 
                 </div>
               </div>
             </div>
@@ -148,12 +148,16 @@ export default {
         ).toString();
         const response = await this.$axios.post("/api/v1/login", this.formData);
         console.log("Login successful!");
-        const token = response.data.data.token;
+        const token = response.data.data;
         localStorage.setItem("token", token);
         // Redirect to home page
         this.$router.push("/");
       } catch (error) {
         console.error("Error during login:", error);
+        // Handle specific error messages
+        if (error.response && error.response.data && error.response.data.message) {
+          alert(error.response.data.message); // Show server error message
+        }
         this.badRequest = true;
       }
     },
@@ -411,10 +415,11 @@ span a:hover {
 @media only screen and (max-width: 768px) {
   .row {
     max-width: 420px;
-    height: 100%;
   }
   .side-image {
     display: none;
   }
 }
+
+
 </style>

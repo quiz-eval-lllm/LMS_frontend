@@ -32,6 +32,9 @@
 
     <div class="content-pane">
       <h1 ref="createCourseTitle">Buat Course Baru</h1>
+      <div class="info-message">
+        Uploading media can't be used at this time.
+      </div>
       <form @submit.prevent="createCourse">
         <div class="form-group">
           <label for="name">Nama:</label>
@@ -70,8 +73,8 @@
             id="image"
             ref="fileInput"
             @change="handleFileUpload"
-            required
             accept="image/*"
+            disabled
           />
         </div>
         <div class="subcourses">
@@ -165,8 +168,8 @@
                     type="file"
                     :id="'material-file-' + subIndex + '-' + matIndex"
                     @change="handleMaterialUpload($event, subIndex, matIndex)"
-                    required
                     accept="video/*, application/pdf"
+                    disabled
                   />
                 </div>
                 <div class="form-group">
@@ -177,7 +180,6 @@
                     type="number"
                     :id="'material-reading-time-' + matIndex"
                     v-model.number="material.readingMinute"
-                    required
                   />
                 </div>
                 <div
@@ -573,6 +575,18 @@ export default {
   padding: 10px;
   margin-bottom: 10px;
   transition: background-color 0.3s;
+}
+
+.info-message {
+  border: 2px solid red; /* Red outline */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Add some padding */
+  background-color: #ffe6e6; /* Light red background */
+  color: #b30000; /* Dark red text for better contrast */
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold; /* Make it stand out */
+  text-align: center; /* Center the text */
+  margin-bottom: 20px; /* Add spacing below the message */
 }
 
 .subcourse-tile:hover {

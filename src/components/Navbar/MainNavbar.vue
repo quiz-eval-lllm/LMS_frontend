@@ -39,9 +39,6 @@
           <router-link v-if="!isLoggedIn" to="/login" class="btn">
             <span class="link-text">Login</span>
           </router-link>
-          <router-link v-if="!isLoggedIn" to="/register" class="btn">
-            <span class="link-text">Daftar</span>
-          </router-link>
         </div>
       </div>
     </div>

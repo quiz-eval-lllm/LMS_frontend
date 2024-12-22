@@ -5,7 +5,7 @@ import axios from "axios";
 
 // Set up base URL for API requests (optional)
 // axios.defaults.baseURL = 'http://localhost:8080'; // development
-axios.defaults.baseURL = "http://35.238.65.121:8084"; // production
+axios.defaults.baseURL = "http://localhost:8084"; // production
 
 // Inject Axios into app instance
 const app = createApp(App);

@@ -21,7 +21,13 @@
     <div class="course-list">
       <div class="card" v-for="course in courses" :key="course.id">
         <div class="course">
-          
+          <div class="image-container">
+            <img
+              :src="course.image_url"
+              :alt="course.name"
+              class="course-image"
+            />
+          </div>
 
           <div class="card-content">
             <h2>{{ course.name }}</h2>

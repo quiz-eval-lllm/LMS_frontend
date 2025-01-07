@@ -24,7 +24,9 @@
             </div>
           </div>
         </div>
-        
+        <div class="header-right">
+          <img :src="course.image_url" alt="Course Image" />
+        </div>
       </div>
       <div class="enroll-button">
         <router-link

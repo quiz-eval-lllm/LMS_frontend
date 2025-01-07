@@ -32,9 +32,6 @@
 
     <div class="content-pane">
       <h1 ref="createCourseTitle">Buat Course Baru</h1>
-      <div class="info-message">
-        Uploading media can't be used at this time.
-      </div>
       <form @submit.prevent="createCourse">
         <div class="form-group">
           <label for="name">Nama:</label>
@@ -72,9 +69,9 @@
             type="file"
             id="image"
             ref="fileInput"
-            @change="handleFileUpload"
+            @change="handleFileUpload($event)"
+            required
             accept="image/*"
-            disabled
           />
         </div>
         <div class="subcourses">
@@ -168,8 +165,8 @@
                     type="file"
                     :id="'material-file-' + subIndex + '-' + matIndex"
                     @change="handleMaterialUpload($event, subIndex, matIndex)"
+                    required
                     accept="video/*, application/pdf"
-                    disabled
                   />
                 </div>
                 <div class="form-group">
@@ -180,6 +177,7 @@
                     type="number"
                     :id="'material-reading-time-' + matIndex"
                     v-model.number="material.readingMinute"
+                    required
                   />
                 </div>
                 <div

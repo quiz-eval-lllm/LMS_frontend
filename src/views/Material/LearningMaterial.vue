@@ -673,7 +673,7 @@ export default {
 
     async fetchDirectedUrl() {
       try {
-        const response = await fetch('http://192.168.1.13:8000', {
+        const response = await fetch('http://34.69.196.114', {
           method: 'POST'
         });
         return response.url;

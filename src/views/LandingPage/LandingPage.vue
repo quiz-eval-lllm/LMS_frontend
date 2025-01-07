@@ -22,7 +22,13 @@
     <div class="course-list">
       <div class="card" v-for="course in courses" :key="course.uuid">
         <router-link :to="'/course/' + course.slugName" class="course">
-          
+          <div class="image-container">
+            <img
+              :src="course.image_url"
+              :alt="course.title"
+              class="course-image"
+            />
+          </div>
 
           <div class="card-content">
             <h2>{{ course.name }}</h2>

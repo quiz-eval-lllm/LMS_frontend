@@ -8,7 +8,7 @@
               <div
                 style="margin-bottom:10px; font-weight:bold; color:#555; border:1px solid #ccc; padding:10px; border-radius:15px 15px 0 0; background-color:#f9f9f9; text-align:center;"
               >
-                Single Sign-On for Integrated Learning Evaluation System
+                IAM for Integrated Learning Evaluation System
               </div>
               <div class="col-md-6 left">
                 <div class="input-box">
@@ -148,8 +148,9 @@ export default {
         ).toString();
         const response = await this.$axios.post("/api/v1/login", this.formData);
         console.log("Login successful!");
-        const token = response.data.data;
+        const {token, access_token} = response.data.data;
         localStorage.setItem("token", token);
+        localStorage.setItem("access_token", access_token);
         // Redirect to home page
         this.$router.push("/");
       } catch (error) {

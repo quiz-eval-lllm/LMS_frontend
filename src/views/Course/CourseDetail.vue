@@ -247,6 +247,7 @@ export default {
     this.fetchCourse();
   },
   computed: {
+    
     pageCount() {
       // Calculate the total number of pages based on the number of reviews and reviewsPerPage
       return Math.ceil(this.course.listReview.length / this.reviewsPerPage);

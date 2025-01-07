@@ -12,7 +12,7 @@
               </div>
               <div class="col-md-6 left">
                 <div class="input-box">
-                  <header>SSO</header>
+                  <header>Login</header>
                   <div class="input-field">
                     <label for="email">Username</label>
                     <input

@@ -70,7 +70,6 @@
             id="image"
             ref="fileInput"
             @change="handleFileUpload($event)"
-            required
             accept="image/*"
           />
         </div>
@@ -165,7 +164,6 @@
                     type="file"
                     :id="'material-file-' + subIndex + '-' + matIndex"
                     @change="handleMaterialUpload($event, subIndex, matIndex)"
-                    required
                     accept="video/*, application/pdf"
                   />
                 </div>
